@@ -1,3 +1,4 @@
 [
-	{ "keys": ["ctrl+1"], "command": "addcutline"},
+	{ "keys": ["ctrl+1"], "command": "addcutline","args":{"LEN":"short"}},
+	{ "keys": ["ctrl+2"], "command": "addcutline","args":{"LEN":"long"}},
 ]

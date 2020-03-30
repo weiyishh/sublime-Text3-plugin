@@ -4,11 +4,13 @@ import re
 import math
 
 class AddcutlineCommand(sublime_plugin.TextCommand):
-	def run(self, edit):
+	def run(self, edit,LEN=""):
 		region = self.view.sel()[0]       #获取当前选取的区域，a = self.view.sel()[0].a 获取当前区域的起始point 
+		region = self.view.line(region)   #获取当前整行
 		str_a = self.view.substr(region)  #获取当前选择区域字符串
 		parameter = sublime.load_settings("AddCutLine.sublime-settings")
-		LEN = parameter.get('LEN')
+		if (LEN== ""):
+			LEN = parameter.get('LEN')
 		print(LEN)
 		if len(str_a)==0:                 #如果仅是光标的位置，从该位置的那一行顶行插入cutline
 			region=self.view.line(region) #获取从行开始的region
@@ -28,7 +30,7 @@ class AddcutlineCommand(sublime_plugin.TextCommand):
 			print(region)
 			str_a = self.view.substr(region)
 			print(str_a)
-			str = re.findall(r"[/#]+\s*(.*\S+)\s*$", str_a)  #取得//或者#后面的字符串，去除前后空格
+			str = re.findall(r"\s*[/#]+\s*(.*\S+)\s*$", str_a)  #取得//或者#后面的字符串，去除前后空格
 			srt_len =len(str[0]) 
 			print(srt_len)
 			print(str)
