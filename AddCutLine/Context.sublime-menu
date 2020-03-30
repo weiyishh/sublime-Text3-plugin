@@ -1,0 +1,4 @@
+[
+	{ "caption": "-", "id": "addcutline" },  //再建一个右键菜单中的分段。可以没有。id是唯一标识
+	{ "command": "addcutline", "caption": "AddCutLine" },    //command就是具体要执行的命令，caption是显示的名称
+]
