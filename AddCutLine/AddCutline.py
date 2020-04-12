@@ -30,7 +30,7 @@ class AddcutlineCommand(sublime_plugin.TextCommand):
 			print(region)
 			str_a = self.view.substr(region)
 			print(str_a)
-			str = re.findall(r"\s*[/#]+\s*(.*\S+)\s*$", str_a)  #取得//或者#后面的字符串，去除前后空格
+			str = re.findall(r"\s*[/#]?\s*(.*\S+)\s*$", str_a)  #取得//或者#后面的字符串，去除前后空格
 			srt_len =len(str[0]) 
 			print(srt_len)
 			print(str)
